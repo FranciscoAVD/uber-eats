@@ -24,7 +24,7 @@ export default function Phone({children, className}:{children: React.ReactNode, 
         clipPath="url(#2ade4387-9c63-4fc4-b754-10e687a0d332)"
         transform="translate(24 24)"
       >
-        <div className='h-full w-full p-4 bg-white'>
+        <div className='h-full w-full bg-white'>
             {children}
         </div>
       </foreignObject>

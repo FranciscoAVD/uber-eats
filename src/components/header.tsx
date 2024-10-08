@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export default function Header() {
     const active = usePathname();
     return (
-        <header className='sticky top-0 inset-x-0 flex'>
+        <header className='sticky top-0 inset-x-0 flex p-4 pb-0'>
             <Button variant={"ghost"} className="grow gap-x-2 text-base font-semibold rounded-none border-b-4"  asChild>
                 <Link href="/"><CarIcon className="size-6"/>Rides</Link>
             </Button>
