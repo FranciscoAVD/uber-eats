@@ -16,10 +16,21 @@ export default function DeliverOptions() {
             <Button variant={"secondary"} className='gap-x-2 text-xs h-fit px-3 py-1.5 font-semibold rounded-full' onClick={() => setOpen(true)}>
                 Delivery <ChevronDownIcon className='size-4' />
             </Button>
-
-            {open &&
-                <AnimatePresence mode='wait'>
-                    <motion.div className="absolute inset-0 bg-neutral-900/50" onClick={() => setOpen(false)}>
+            <AnimatePresence>
+                {open &&
+                    <motion.div 
+                    initial={{
+                        backgroundColor: "rgba(23,23,23,0)"
+                    }}
+                    animate={{
+                        backgroundColor: "rgba(23,23,23,0.5)"
+                    }}
+                    exit={{
+                        backgroundColor: "rgba(23,23,23,0)"
+                    }}
+                    className="absolute inset-0" 
+                    onClick={() => setOpen(false)}
+                    >
                         <motion.div
                             initial={{
                                 opacity: 0,
@@ -31,7 +42,7 @@ export default function DeliverOptions() {
                             }}
                             exit={{
                                 opacity: 0,
-                                bottom: "-100%",
+                                bottom: "-5rem",
                             }}
                             className='absolute flex flex-col w-full rounded-tl-3xl pt-2 pb-4 rounded-tr-3xl bg-white'
                             onClick={(e) => e.stopPropagation()}
@@ -42,17 +53,17 @@ export default function DeliverOptions() {
                             <ul className='text-sm'>
                                 {options.map((opt, idx) => (
                                     <li key={opt.label} className="">
-                                        <Button 
-                                        variant={"ghost"} 
-                                        className='gap-x-4 w-full h-fit py-4 border-b'
-                                        onClick={() => {
-                                            const change = [...options]
-                                            for(let i = 0; i < change.length; i++) {
-                                                if(i === idx) change[i].default = true;
-                                                else change[i].default = false
-                                            }
-                                            setOptions(change)
-                                        }}
+                                        <Button
+                                            variant={"ghost"}
+                                            className='gap-x-4 w-full h-fit py-4 border-b'
+                                            onClick={() => {
+                                                const change = [...options]
+                                                for (let i = 0; i < change.length; i++) {
+                                                    if (i === idx) change[i].default = true;
+                                                    else change[i].default = false
+                                                }
+                                                setOptions(change)
+                                            }}
                                         >
                                             <opt.icon className='size-5' />
                                             <span>{opt.label}</span>
@@ -61,17 +72,16 @@ export default function DeliverOptions() {
                                     </li>
                                 ))}
                             </ul>
-                            <Button 
-                            className='w-[calc(100%-2rem)] mt-8 mx-auto' 
-                            onClick={() => setOpen(false)}
+                            <Button
+                                className='w-[calc(100%-2rem)] mt-8 mx-auto'
+                                onClick={() => setOpen(false)}
                             >
                                 Confirm
                             </Button>
                         </motion.div>
                     </motion.div>
-                </AnimatePresence>
-
-            }
+                }
+            </AnimatePresence>
         </>
     )
 }
