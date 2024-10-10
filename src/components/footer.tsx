@@ -13,7 +13,7 @@ const nav = [
 export default function Footer({ className }: { className?: string }) {
     const active = usePathname();
     return (
-        <footer className={cn(`flex items-center justify-evenly pt-4 pb-6 border-t-2  ${className}`)}>
+        <footer className={cn(`flex items-center justify-evenly h-20 pb-4 border-t-2  ${className}`)}>
             {nav.map(n => (
                 <Button
                 size={"icon"}
