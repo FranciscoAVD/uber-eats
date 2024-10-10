@@ -25,7 +25,7 @@ export default function Address() {
                     <motion.div
                         initial={{
                             opacity: 0.7,
-                            top: "30%",
+                            top: "20%",
                         }}
                         animate={{
                             opacity: 1,
@@ -34,7 +34,7 @@ export default function Address() {
                             borderTopRightRadius: 0,
                         }}
                         exit={{
-                            top: "10%",
+                            top: "20%",
                             opacity: 0
                         }}
                         className="absolute inset-0 bg-white z-50"
